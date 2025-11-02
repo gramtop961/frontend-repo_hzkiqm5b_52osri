@@ -1,10 +1,11 @@
 import React from 'react';
 import { Printer, ShoppingCart, ArrowRight, Sparkles } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
-const Hero = () => {
+const Hero = ({ onStartShopping }) => {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-pink-50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-pink-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -19,14 +20,14 @@ const Hero = () => {
               From business cards to banners, apparel to packaging — design online in minutes and get professional quality delivered to your door.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#products"
+              <button
+                onClick={onStartShopping}
                 className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-3 text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <ShoppingCart className="h-5 w-5" />
                 Start shopping
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </button>
               <a
                 href="#how"
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-indigo-700 ring-1 ring-indigo-200 transition hover:bg-indigo-50"
@@ -47,27 +48,14 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -right-20 -top-16 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl" />
-            <div className="absolute -left-10 -bottom-16 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl" />
-            <div className="relative mx-auto max-w-md rounded-2xl border border-gray-100 bg-white p-6 shadow-xl">
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-pink-500 p-[2px]">
-                <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-white">
-                  <Printer className="h-20 w-20 text-indigo-600" />
-                </div>
-              </div>
-              <div className="mt-5">
-                <h3 className="text-lg font-semibold text-gray-900">Design online, print on demand</h3>
-                <p className="mt-1 text-sm text-gray-600">Upload your artwork or customize templates. Instant proofing and fast shipping.</p>
-                <div className="mt-4 flex gap-3">
-                  <button className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700">
-                    Create a design
-                  </button>
-                  <button className="inline-flex items-center justify-center rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200">
-                    Browse templates
-                  </button>
-                </div>
-              </div>
+          <div className="relative h-[360px] sm:h-[420px] lg:h-[520px] w-full">
+            <div className="absolute -right-20 -top-16 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl pointer-events-none" />
+            <div className="absolute -left-10 -bottom-16 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl pointer-events-none" />
+            <div className="relative h-full w-full overflow-hidden rounded-2xl border border-gray-100 bg-white/60 shadow-xl backdrop-blur">
+              <Spline
+                scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode"
+                style={{ width: '100%', height: '100%' }}
+              />
             </div>
           </div>
         </div>
